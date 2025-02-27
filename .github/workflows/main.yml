@@ -6,25 +6,19 @@ on:
       [opened, edited, deleted, closed, reopened, labeled, unlabeled, assigned]
   issue_comment:
     types: [created, edited, deleted]
-    
+
 concurrency:
   group: issue-${{ github.event.issue.number }}
   cancel-in-progress: false
-
-# Extra permissions needed to login with Entra ID service principal via federated identity
-permissions:
-  id-token: write
-  issues: write
 
 jobs:
   alert:
     if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      
       - uses: danhellem/github-actions-issue-to-work-item@master
         env:
-          ado_token: "${{ env.ado_token }}"
+          ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "ronniedamsgaard"
           ado_project: "Test 1"
