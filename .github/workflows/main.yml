@@ -37,8 +37,8 @@ jobs:
         env:
           ado_token: "${{ env.ado_token }}"
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
-          ado_organization: "ado_organization_name"
-          ado_project: "your_project_name"
+          ado_organization: "ronniedamsgaard"
+          ado_project: "Test 1"
           ado_area_path: "optional_area_path\\optional_area_path"
           ado_iteration_path: "optional_iteration_path\\optional_iteration_path"
           ado_wit: "User Story"
